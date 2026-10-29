@@ -1,0 +1,49 @@
+{
+  "name": "Atlas CMMS",
+  "slug": "atlas-cmms",
+  "categories": [
+    25
+  ],
+  "date_created": "2026-10-29",
+  "type": "ct",
+  "updateable": true,
+  "privileged": false,
+  "interface_port": 80,
+  "documentation": "https://docs.atlas-cmms.com/",
+  "website": "https://atlas-cmms.com/",
+  "repository": "https://github.com/Grashjs/cmms",
+  "logo": "https://cdn.jsdelivr.net/gh/selfhst/icons@main/webp/atlas-cmms.webp",
+  "description": "Atlas CMMS is a self-hosted maintenance management system for web and mobile. It tracks work orders, preventive maintenance, assets, locations, parts and inventory, vendors and customers, with analytics, approval workflows and an Android/iOS app that connects to your own server.",
+  "install_methods": [
+    {
+      "type": "default",
+      "script": "ct/atlas-cmms.sh",
+      "config_path": "/opt/atlas-cmms_data/.env",
+      "resources": {
+        "cpu": 4,
+        "ram": 6144,
+        "hdd": 20,
+        "os": "Debian",
+        "version": "13"
+      }
+    }
+  ],
+  "default_credentials": {
+    "username": null,
+    "password": null
+  },
+  "notes": [
+    {
+      "text": "Sign up on the login page to create the first organization and its admin. Anyone who can reach the port can do the same until ALLOWED_ORGANIZATION_ADMINS is set in /opt/atlas-cmms_data/.env.",
+      "type": "warning"
+    },
+    {
+      "text": "Links and file downloads use the container IP. Behind a domain or reverse proxy, change PUBLIC_API_URL, PUBLIC_FRONT_URL and PUBLIC_MINIO_ENDPOINT in /opt/atlas-cmms_data/.env and run systemctl restart atlas-cmms.",
+      "type": "info"
+    },
+    {
+      "text": "Email (notifications, invitations, password reset) is off until SMTP_* and ENABLE_EMAIL_NOTIFICATIONS are set in /opt/atlas-cmms_data/.env.",
+      "type": "info"
+    }
+  ]
+}
