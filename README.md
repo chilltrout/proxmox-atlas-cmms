@@ -54,13 +54,13 @@ Push this folder (keeping the `ct/`, `install/`, `json/` layout) to a repository
 Proxmox host:
 
 ```bash
-COMMUNITY_SCRIPTS_URL=https://raw.githubusercontent.com/YOUR_USER/YOUR_REPO/main bash -c "$(curl -fsSL https://raw.githubusercontent.com/YOUR_USER/YOUR_REPO/main/ct/atlas-cmms.sh)"
+COMMUNITY_SCRIPTS_URL=https://raw.githubusercontent.com/chilltrout/proxmox-atlas-cmms/main bash -c "$(curl -fsSL https://raw.githubusercontent.com/chilltrout/proxmox-atlas-cmms/main/ct/atlas-cmms.sh)"
 ```
 
 Or change line 2 of `ct/atlas-cmms.sh` to your base URL once and drop the variable:
 
 ```bash
-sed -i 's|^_CS_DEFAULT_URL=.*|_CS_DEFAULT_URL="https://raw.githubusercontent.com/YOUR_USER/YOUR_REPO/main"|' ct/atlas-cmms.sh
+sed -i 's|^_CS_DEFAULT_URL=.*|_CS_DEFAULT_URL="https://raw.githubusercontent.com/chilltrout/proxmox-atlas-cmms/main"|' ct/atlas-cmms.sh
 ```
 
 The base URL is baked into the container's `/usr/bin/update`, so `update` keeps pulling from your
@@ -70,7 +70,7 @@ repository afterwards.
 
 ```bash
 git clone https://github.com/community-scripts/core.git
-git clone https://github.com/YOUR_USER/YOUR_REPO.git atlas-scripts   # or copy this folder next to core/
+git clone https://github.com/chilltrout/proxmox-atlas-cmms.git atlas-scripts   # or copy this folder next to core/
 bash atlas-scripts/ct/atlas-cmms.sh
 ```
 
